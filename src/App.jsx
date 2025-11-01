@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import {Moon, Trash, Plus} from 'lucide-react'
 import "./App.css";
 import TaskCard from './TaskCard.jsx';
@@ -8,12 +8,23 @@ function App() {
   const [tasks, setTasks]=useState([]);
   const [newTask , setNewTask]=useState("");
 const date=new Date().toDateString();
-const [storedTasks, setStoredTasks] = useState([]);
+const [isDarkMode, setIsDarkMode] = useState(false);
+
+const isDarkModeStyle = {
+  backgroundColor: isDarkMode ? '#121212' : '#ffffff',
+  
+};
+
 
 useEffect(() => {
   const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   setTasks(tasks);
+  setIsDarkMode(JSON.parse(localStorage.getItem('isDarkMode')) || false);
 }, []);
+
+useEffect(() => {
+  localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
+}, [isDarkMode]);
 
 const addTask=()=>{
   if(newTask.trim()==""){
@@ -22,11 +33,10 @@ const addTask=()=>{
   } 
   else{
  setTasks([newTask,...tasks ]);
+  localStorage.setItem('tasks',JSON.stringify([newTask,...tasks ]));
   setNewTask("");
    toast.success('Task added successfully!');
-   storedTasks.push(newTask);
-   setStoredTasks([...storedTasks]);
-   localStorage.setItem('tasks',JSON.stringify(storedTasks));
+  
     }
 }
 const deleteTask=(taskToDelete)=>{
@@ -38,15 +48,15 @@ const deleteTask=(taskToDelete)=>{
 
 
   return (
-    <div>
-      <div className='container'>
+    <div style={isDarkModeStyle} className="App">
+      <div className='container' >
         <div className='headingCon'>
           <h1 className="TaskHeading">My Tasks</h1>
         <p>{date}</p>
         
         </div>
         <div className='togglerCon'>
-          <Moon className='toggler' />
+          <Moon className={isDarkMode ? 'dark' : 'toggle'} onClick={() => setIsDarkMode(!isDarkMode)} />
         </div>
       </div>
       <div className='heading-disc'>The way to get started is to quit talking and begin doing."</div>
@@ -59,9 +69,9 @@ const deleteTask=(taskToDelete)=>{
         </div>
 
       <div className="taskCardCon">
-        {tasks.map((task, index) => (
-          <TaskCard task={task} key={index} deleteTask={()=>{deleteTask(task)}}/>
-        ))}
+        {tasks.map((task, index) => {
+          return <TaskCard task={task} key={index} deleteTask={()=>{deleteTask(task)}} className={isDarkMode ? 'dark' : 'light'}/>
+        })}
       </div>
       
     </div>
