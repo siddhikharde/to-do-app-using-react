@@ -16,6 +16,7 @@
 .task{
     font-size: 17px;
 }
+
 .delete-btn{
     background: none;
     border: none;
@@ -26,4 +27,11 @@
 }
 .delete-btn:hover{
     color: red;
+}
+@media screen and (max-width: 700px){
+ .taskCard{
+    padding: 10px;
+    
+ }
+    
 }

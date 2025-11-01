@@ -39,7 +39,6 @@ const deleteTask=(taskToDelete)=>{
 
   return (
     <div>
-      
       <div className='container'>
         <div className='headingCon'>
           <h1 className="TaskHeading">My Tasks</h1>
