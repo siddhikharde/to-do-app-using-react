@@ -20,6 +20,8 @@
     flex-direction: column;
     gap: 8px;
     justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 .headingCon h1{
     background-image: linear-gradient(135deg, hsl(204, 84%, 61%) 0%, hsl(270, 82%, 73%) 100%);
@@ -84,4 +86,15 @@
 }
 .add-btn:hover{
     background-image: linear-gradient(135deg, hsl(270, 82%, 73%) 0%, hsl(204, 84%, 61%) 100%);
+}
+.heading-disc{
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+  width: 50%;
+  padding: 15px ;
+    text-align: center;
+    margin: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
 }
