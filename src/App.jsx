@@ -11,8 +11,7 @@ const date=new Date().toDateString();
 const [isDarkMode, setIsDarkMode] = useState(false);
 
 const isDarkModeStyle = {
-  backgroundColor: isDarkMode ? '#121212' : '#ffffff',
-  
+  backgroundColor: isDarkMode ? '#1A1A2E' : '#ffffff',
 };
 
 
@@ -70,7 +69,7 @@ const deleteTask=(taskToDelete)=>{
 
       <div className="taskCardCon">
         {tasks.map((task, index) => {
-          return <TaskCard task={task} key={index} deleteTask={()=>{deleteTask(task)}} className={isDarkMode ? 'dark' : 'light'}/>
+          return <TaskCard task={task} key={index} deleteTask={()=>{deleteTask(task)}} className={isDarkMode ? 'dark' : 'light'} isChecked={task.completed} />
         })}
       </div>
       

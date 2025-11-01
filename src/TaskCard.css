@@ -1,36 +1,61 @@
 .taskCard{
     padding: 12px 15px;
     width: 100%;
-    border: 1px solid lightgray;
+   border: 1px solid #dcdffb;
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    background-color: white;
+     box-shadow: 0 3px 6px rgba(92, 122, 234, 0.1);
+  background-color: #ffffff;
      font-size: 16px;
+     transition: all 0.2s ease-in-out;
 }
 .taskCard:hover{
-   border: 1px solid hsl(204, 84%, 61%);
+    border: 1px solid #A259FF;
+  box-shadow: 0 4px 10px rgba(162, 89, 255, 0.2);
+  transform: translateY(-2px);
 }
 .task{
     font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1A1A2E;
+}
+.checkbox{
+    width: 18px;
+  height: 18px;
+  cursor: pointer;
+  border: none;
+  accent-color: #5C7AEA;
 }
 
 .delete-btn{
     background: none;
-    border: none;
-    padding: 0;
-    font-size: 15px;
-    cursor: pointer;
-    color: tomato;
+  border: none;
+  padding: 0;
+  font-size: 18px;
+  cursor: pointer;
+  color: #FF6B6B;
+  transition: color 0.2s ease;
 }
 .delete-btn:hover{
-    color: red;
+    color: #FF1E56;
+
 }
 @media screen and (max-width: 700px){
  .taskCard{
     padding: 10px;
  }
     
+}
+.taskText{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.completed {
+    text-decoration: line-through;
+    color: gray;
 }

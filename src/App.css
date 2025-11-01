@@ -7,15 +7,14 @@
 .App{
     min-height: 100vh;
     padding: 20px 10px;
-    background-color: #A7AAE1;
-    color: #000000;
+    background-color: #E9EEFF;
+    color:  #1A1A2E;
 }
 .dark{
-    background-color: #121212;
-    color: #ffffff;
+   background-color: #1A1A2E;
+ color: #E9EEFF;
     cursor: pointer;
 }
-
 
 .container{
     display: flex;
@@ -43,7 +42,7 @@
     width: 100%;
 }
 .headingCon h1{
-    background-image: linear-gradient(135deg, hsl(204, 84%, 61%) 0%, hsl(270, 82%, 73%) 100%);
+   background-image: linear-gradient(135deg, #5C7AEA 0%, #A259FF 100%);
     -webkit-background-clip: text;  
   background-clip: text;          
   color: transparent;     
@@ -101,26 +100,25 @@
     margin-top: 20px;
 }
 .addTaskCon:hover .task-input{
-    border-color: hsl(204, 84%, 61%);
-    box-shadow: 0 0 2px hsl(204, 84%, 61%);
+    border-color: hsl(270, 82%, 73%);
+    box-shadow: 0 0 2px hsl(270, 82%, 73%);
 }
 .task-input{
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 2px solid lightgray;
+   border: 2px solid #A259FF;
     border-radius: 5px;
     outline: none;
 
 }
 .task-input:focus{
-    border-color: hsl(204, 84%, 61%);
-    box-shadow: 0 0 2px hsl(204, 84%, 61%);
+    border-color: hsl(270, 82%, 73%);
+    box-shadow: 0 0 2px hsl(270, 82%, 73%);
 }
 .add-btn{
     padding: 10px 15px;
-      background-image: linear-gradient(135deg, hsl(204, 84%, 61%) 0%, hsl(270, 82%, 73%) 100%);
-    background-color: hsl(204, 84%, 61%);
+background-image: linear-gradient(135deg, #5C7AEA 0%, #A259FF 100%);    background-color: hsl(204, 84%, 61%);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -130,8 +128,7 @@
     justify-content: center;
 }
 .add-btn:hover{
-    background-image: linear-gradient(135deg, hsl(270, 82%, 73%) 0%, hsl(204, 84%, 61%) 100%);
-}
+ background-image: linear-gradient(135deg, #A259FF 0%, #5C7AEA 100%);}
 @media screen and (max-width: 700px){
     .addTaskCon{
         width: 100%;
