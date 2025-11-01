@@ -1,11 +1,12 @@
 import React from 'react'
 import "./TaskCard.css"
 import {Trash} from 'lucide-react'
-function TaskCard({task}) {
+
+function TaskCard({task, deleteTask}) {
   return (
    <div className='taskCard'>
-              <p className='task'>{task} </p>
-              <span className='deleteIcon'><Trash /></span>
+              <div className='task'>{task} </div>
+              <button className='delete-btn' onClick={deleteTask}><Trash /></button>
     </div>
   );
 }

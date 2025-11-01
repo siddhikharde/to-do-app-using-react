@@ -7,11 +7,15 @@ function App() {
   const [tasks, setTasks]=useState(["do study","go to the market"]);
   const [newTask , setNewTask]=useState("");
 const date=new Date().toDateString();
-function addTask(){
+const addTask=()=>{
   if(newTask.trim()=="")
     return;
-  setTasks(...tasks, newTask);
+  setTasks([newTask,...tasks ]);
   setNewTask("");
+}
+const deleteTask=(taskToDelete)=>{
+  const updatedTasks=tasks.filter((tasks)=>tasks!==taskToDelete);
+  setTasks (updatedTasks);
 }
 
   return (
@@ -27,11 +31,15 @@ function addTask(){
       </div>
       <div className="taskCardCon">
         {tasks.map((task, index) => (
-          <TaskCard task={task} key={index} />
+          <TaskCard task={task} key={index} deleteTask={()=>{deleteTask(task)}}/>
         ))}
       </div>
-     
-    
+      <div className='addTaskCon'>
+        <input type="text"className='task-input'placeholder='Add a Task' value={newTask} onChange={(e)=>{
+            setNewTask(e.target.value);
+        }} />
+        <button className="add-btn" onClick={addTask} ><Plus/></button>
+        </div>
     </div>
   )
 }
