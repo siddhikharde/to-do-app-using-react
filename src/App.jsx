@@ -66,6 +66,13 @@ const deleteTask=(taskToDelete)=>{
         }} />
         <button className="add-btn" onClick={addTask} ><Plus/></button>
         </div>
+        <div className='searchTaskCon'>
+        <input type="text"className='search-input'placeholder='Search a Task' onChange={(e)=>{
+          const searchTerm = e.target.value.toLowerCase();
+          const filteredTasks = tasks.filter(task => task.toLowerCase().includes(searchTerm));
+          setTasks(filteredTasks);
+        }} />
+        </div>
 
       <div className="taskCardCon">
         {tasks.map((task, index) => {
