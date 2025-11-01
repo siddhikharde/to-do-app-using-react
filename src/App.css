@@ -1,0 +1,61 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    gap: 10px;
+   padding: 10px;
+   justify-content: space-between;
+   align-items: center;
+    width: 80%;
+    margin: auto;
+   
+}
+.headingCon{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+}
+.headingCon h1{
+    background-image: linear-gradient(135deg, hsl(204, 84%, 61%) 0%, hsl(270, 82%, 73%) 100%);;
+    -webkit-background-clip: text;  
+  background-clip: text;          
+  color: transparent;     
+  font-size: 40px;
+  font-weight: 700;    
+}
+.headingCon p{
+    font-size: 13px;
+    color: gray;
+}
+.toggler{
+   cursor: pointer;
+
+}
+.taskCardCon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 80%;
+    gap: 20px;
+      margin: auto;
+      margin-top: 10px;
+    
+}
+
+.input{
+    width: 100%;
+    border:1px solid hsl(249, 55%, 65%);
+    padding: 10px;
+    font-size: 18px;
+    outline: none;
+    
+    border-radius: 8px;
+}
