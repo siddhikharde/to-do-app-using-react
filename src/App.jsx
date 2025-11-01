@@ -1,31 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Moon, Trash, Plus} from 'lucide-react'
 import "./App.css";
 import TaskCard from './TaskCard.jsx';
 import { toast } from 'react-hot-toast';
 
 function App() {
-  const [tasks, setTasks]=useState(["do study","go to the market"]);
+  const [tasks, setTasks]=useState([]);
   const [newTask , setNewTask]=useState("");
 const date=new Date().toDateString();
+const [storedTasks, setStoredTasks] = useState([]);
+
+useEffect(() => {
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  setTasks(tasks);
+}, []);
+
 const addTask=()=>{
   if(newTask.trim()==""){
-    toast.error('Task cannot be empty!');
+    toast.error('Enter a valid task!');
     return;
   } 
   else{
  setTasks([newTask,...tasks ]);
   setNewTask("");
-   toast.success('Task added successfully!')
+   toast.success('Task added successfully!');
+   storedTasks.push(newTask);
+   setStoredTasks([...storedTasks]);
+   localStorage.setItem('tasks',JSON.stringify(storedTasks));
     }
- 
-
 }
 const deleteTask=(taskToDelete)=>{
   const updatedTasks=tasks.filter((tasks)=>tasks!==taskToDelete);
   setTasks (updatedTasks);
-  toast.success('Task deleted successfully!')
+  toast.success('Task deleted successfully!');
+  localStorage.setItem('tasks',JSON.stringify(updatedTasks));
 }
+
 
   return (
     <div>
