@@ -68,7 +68,7 @@ top: 50px;
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    width: 80%;
+    width: 70%;
     height: 60vh;
     overflow-y: auto;
     border-radius: 5px;
@@ -106,7 +106,7 @@ top: 50px;
     
 }
 .addTaskCon{
-    width: 80%;
+    width: 70%;
     margin: auto;
     display: flex;
     gap: 10px;
@@ -148,7 +148,7 @@ background-image: linear-gradient(135deg, #5C7AEA 0%, #A259FF 100%);
  background-image: linear-gradient(135deg, #A259FF 0%, #5C7AEA 100%);
 }
 .searchTaskCon{
-    width: 80%;
+    width: 70%;
     margin: auto;
     display: flex;
     gap: 10px;
@@ -162,6 +162,18 @@ background-image: linear-gradient(135deg, #5C7AEA 0%, #A259FF 100%);
    border: 2px solid #A259FF;
     border-radius: 5px;
     outline: none;
+
+}
+@media (max-width:1023px) and (min-width:699px) {
+    .addTaskCon, .searchTaskCon{
+        width: 80%;
+    }
+    .taskCardCon{
+        width: 80%;
+    }
+    .taskCardCon{
+        height: 55vh;
+    }
 
 }
 @media screen and (max-width: 700px){

@@ -58,7 +58,7 @@ const deleteTask=(taskToDelete)=>{
           <Moon className={isDarkMode ? 'dark' : 'toggle'} onClick={() => setIsDarkMode(!isDarkMode)} />
         </div>
       </div>
-      <div className='heading-disc'>The way to get started is to quit talking and begin doing."</div>
+      <div className='heading-disc'><i>"The way to get started is to quit talking and begin doing."</i></div>
 
       <div className='addTaskCon'>
         <input type="text"className='task-input'placeholder='Add a Task' value={newTask} onChange={(e)=>{
