@@ -78,8 +78,8 @@ const deleteTask=(taskToDelete)=>{
       <div className="taskCardCon"  >
         {
         tasks.length === 0 ? (
-          <div className={`no-tasks ${isDarkMode ? 'dark' : 'light'}`}>
-            <p className={`no-tasks-text ${isDarkMode ? 'dark' : 'light'}`}><i> No tasks available. Please add a task.</i></p>
+          <div className={`no-tasks ${isDarkMode ? 'dark1' : 'light'}`}>
+            <p className={`no-tasks-text ${isDarkMode ? 'dark1' : 'light'}`}><i> No tasks available. Please add a task.</i></p>
             <img src={noTask} alt="No Tasks" height="200" />
           </div>
         ) : null
