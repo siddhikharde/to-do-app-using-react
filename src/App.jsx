@@ -3,6 +3,7 @@ import {Moon, Trash, Plus} from 'lucide-react'
 import "./App.css";
 import TaskCard from './TaskCard.jsx';
 import { toast } from 'react-hot-toast';
+import noTask  from './assets/noTask.jpg';
 
 function App() {
   const [tasks, setTasks]=useState([]);
@@ -74,10 +75,19 @@ const deleteTask=(taskToDelete)=>{
         }} />
         </div>
 
-      <div className="taskCardCon">
-        {tasks.map((task, index) => {
-          return <TaskCard task={task} key={index} deleteTask={()=>{deleteTask(task)}} className={isDarkMode ? 'dark' : 'light'} isChecked={task.completed} />
-        })}
+      <div className="taskCardCon"  >
+        {
+        tasks.length === 0 ? (
+          <div className={`no-tasks ${isDarkMode ? 'dark' : 'light'}`}>
+            <p className={`no-tasks-text ${isDarkMode ? 'dark' : 'light'}`}><i> No tasks available. Please add a task.</i></p>
+            <img src={noTask} alt="No Tasks" height="200" />
+          </div>
+        ) : null
+      }
+        {
+          tasks.map((task, index) => {
+            return <TaskCard task={task} key={index} deleteTask={()=>{deleteTask(task)}} className={isDarkMode ? 'dark' : 'light'} isChecked={task.completed} />
+          })}
       </div>
       
     </div>
