@@ -64,7 +64,14 @@ const deleteTask=(taskToDelete)=>{
       <div className='addTaskCon'>
         <input type="text"className='task-input'placeholder='Add a Task' value={newTask} onChange={(e)=>{
             setNewTask(e.target.value);
-        }} />
+        }} 
+        //add a task on enter key press
+        onKeyUp={(e)=>{
+          if(e.key==='Enter'){
+            setNewTask(e.target.value)
+            addTask();
+          }
+        }}/>
         <button className="add-btn" onClick={addTask} ><Plus/></button>
         </div>
         <div className='searchTaskCon'>
