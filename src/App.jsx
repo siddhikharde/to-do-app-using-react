@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from 'react'
-import {Moon, Trash, Plus} from 'lucide-react'
+import {Moon, Plus} from 'lucide-react'
 import "./App.css";
 import TaskCard from './TaskCard.jsx';
 import { toast } from 'react-hot-toast';
@@ -68,11 +68,27 @@ const deleteTask=(taskToDelete)=>{
         <button className="add-btn" onClick={addTask} ><Plus/></button>
         </div>
         <div className='searchTaskCon'>
-        <input type="text"className='search-input'placeholder='Search a Task' onChange={(e)=>{
+
+        <input type="text"className='search-input'placeholder='Search a Task' onKeyUp={(e)=>{
           const searchTerm = e.target.value.toLowerCase();
           const filteredTasks = tasks.filter(task => task.toLowerCase().includes(searchTerm));
           setTasks(filteredTasks);
+           if (e.target.value === '') {
+            const allTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            setTasks(allTasks);
+          }
+
+        }}
+        onChange={(e) => {
+          const searchTerm = e.target.value.toLowerCase();
+          const filteredTasks = tasks.filter(task => task.toLowerCase().includes(searchTerm));
+          setTasks(filteredTasks);
+          if (e.target.value === '') {
+            const allTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            setTasks(allTasks);
+          }
         }} />
+
         </div>
 
       <div className="taskCardCon"  >
